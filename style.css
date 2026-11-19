@@ -1,0 +1,759 @@
+
+/* =====================================================
+   HOSTELCARE
+   Hostel Complaint Management System
+   Theme: Miami Nights
+   ===================================================== */
+
+/* CUSTOM FONT */
+
+@font-face {
+    font-family: Astralaga;
+
+    src:
+        url('fonts/Astralaga.woff2'),
+        url('fonts/Astralaga.otf'),
+        url('fonts/Astralaga.ttf');
+}
+
+
+/* =====================================================
+   1. COLOUR PALETTE
+   ===================================================== */
+
+/*
+   Miami Nights:
+   #0F4953 - Teal
+   #F98E6E - Coral
+   #CBF5EF - Mint
+   #F9FCFB - White
+   #FFCFD2 - Pink
+*/
+
+
+/* LIGHT THEME */
+
+:root {
+    --bg: #F9FCFB;
+    --card: #fff;
+    --card2: #E8F9F6;
+    --line: #cfe8e3;
+
+    --tx: #0F4953;
+    --mut: #5f858c;
+
+    --ac: #F98E6E;
+    --btx: #0F4953;
+
+    --ok: #1f9d7a;
+    --warn: #c9741a;
+    --bad: #d64550;
+    --pu: #8a5fb0;
+
+    --hd: 'Astralaga', 'Cormorant Garamond',
+          'Playfair Display', Georgia, serif;
+}
+
+
+/* DARK THEME */
+
+[data-theme=dark] {
+    --bg: #082a30;
+    --card: #0F4953;
+    --card2: #145a66;
+    --line: #1f6b78;
+
+    --tx: #F9FCFB;
+    --mut: #a5cfcf;
+
+    --ok: #7ee8c6;
+    --warn: #ffc58a;
+    --bad: #ff9a9a;
+    --pu: #FFCFD2;
+}
+
+
+/* =====================================================
+   2. GLOBAL STYLES
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--tx);
+
+    font: 14px/1.5 'DM Sans', system-ui, Segoe UI, sans-serif;
+
+    transition: background .25s, color .25s;
+}
+
+
+/* =====================================================
+   3. MAIN LAYOUT
+   ===================================================== */
+
+.shell {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+
+/* SIDEBAR */
+
+aside {
+    background: var(--card);
+    border-right: 1px solid var(--line);
+
+    padding: 18px 12px;
+
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+    overflow: auto;
+}
+
+
+/* LOGO */
+
+.logo {
+    font: 600 26px var(--hd);
+
+    padding: 0 8px 16px;
+    letter-spacing: .3px;
+}
+
+.logo span {
+    color: var(--ac);
+}
+
+
+/* NAVIGATION */
+
+.nav {
+    display: block;
+    width: 100%;
+
+    text-align: left;
+
+    background: none;
+    border: 0;
+
+    color: var(--mut);
+
+    padding: 9px 12px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font: inherit;
+}
+
+.nav:hover {
+    background: var(--card2);
+    color: var(--tx);
+}
+
+.nav.on {
+    background: color-mix(in srgb, var(--ac) 24%, transparent);
+
+    color: var(--tx);
+    font-weight: 600;
+}
+
+
+/* MAIN CONTENT */
+
+main {
+    padding: 22px 28px;
+    min-width: 0;
+}
+
+
+/* TOP HEADER */
+
+.top {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* HEADINGS */
+
+h1 {
+    font: 500 34px/1.1 var(--hd);
+}
+
+h3 {
+    font: 600 20px var(--hd);
+    margin-bottom: 10px;
+}
+
+
+/* TEXT */
+
+.mut {
+    color: var(--mut);
+}
+
+.small {
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   4. GRID SYSTEM
+   ===================================================== */
+
+.grid {
+    display: grid;
+    gap: 14px;
+}
+
+.g4 {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.g2 {
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+}
+
+
+/* =====================================================
+   5. CARDS
+   ===================================================== */
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+
+    border-radius: 14px;
+    padding: 16px;
+
+    margin-bottom: 14px;
+}
+
+.grid .card {
+    margin: 0;
+}
+
+
+/* STATISTICS CARDS */
+
+.stat b {
+    display: block;
+    font: 500 34px var(--hd);
+}
+
+.stat span {
+    color: var(--mut);
+
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+
+/* =====================================================
+   6. TABLES
+   ===================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+
+    padding: 9px 8px;
+
+    border-bottom: 1px solid var(--line);
+
+    vertical-align: top;
+}
+
+th {
+    color: var(--mut);
+
+    font-weight: 500;
+    font-size: 11px;
+
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+
+/* CLICKABLE TABLE ROWS */
+
+tr.click:hover {
+    background: var(--card2);
+    cursor: pointer;
+}
+
+
+/* TABLE SCROLL */
+
+.scroll {
+    overflow-x: auto;
+}
+
+
+/* =====================================================
+   7. STATUS BADGES AND PRIORITY LABELS
+   ===================================================== */
+
+.b,
+.p {
+    padding: 2px 9px;
+
+    border-radius: 99px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* STATUS BADGES */
+
+.b {
+    background: color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.b-Submitted {
+    color: var(--mut);
+}
+
+.b-Assigned {
+    color: var(--pu);
+}
+
+.b-InProgress,
+.b-Pending {
+    color: var(--warn);
+}
+
+.b-Resolved,
+.b-Approved,
+.b-Done,
+.b-Closed {
+    color: var(--ok);
+}
+
+.b-Rejected,
+.b-Reopened {
+    color: var(--bad);
+}
+
+.b-Scheduled {
+    color: var(--tx);
+}
+
+
+/* PRIORITY LABELS */
+
+.p-Low {
+    color: var(--mut);
+}
+
+.p-Medium {
+    color: var(--tx);
+}
+
+.p-High {
+    color: var(--warn);
+}
+
+.p-Urgent {
+    color: var(--bad);
+}
+
+.p {
+    border: 1px solid currentColor;
+}
+
+
+/* =====================================================
+   8. FORM ELEMENTS
+   ===================================================== */
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    background: var(--bg);
+    border: 1px solid var(--line);
+
+    color: var(--tx);
+
+    border-radius: 8px;
+    padding: 9px;
+
+    font: inherit;
+}
+
+
+/* INPUT FOCUS */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--ac);
+    border-color: var(--ac);
+}
+
+
+/* FORM LABELS */
+
+label {
+    display: block;
+
+    font-size: 12px;
+    color: var(--mut);
+
+    margin: 10px 0 4px;
+}
+
+
+/* TEXTAREA */
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+
+/* =====================================================
+   9. BUTTONS
+   ===================================================== */
+
+.btn {
+    background: var(--ac);
+    color: var(--btx);
+
+    border: 0;
+
+    padding: 8px 14px;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font: inherit;
+    font-weight: 600;
+}
+
+.btn:hover {
+    filter: brightness(1.06);
+}
+
+
+/* SECONDARY BUTTON */
+
+.btn.sec {
+    background: var(--card2);
+
+    border: 1px solid var(--line);
+    color: var(--tx);
+}
+
+
+/* SUCCESS BUTTON */
+
+.btn.ok {
+    background: #1f9d7a;
+    color: #fff;
+}
+
+
+/* DANGER BUTTON */
+
+.btn.bad {
+    background: #d64550;
+    color: #fff;
+}
+
+
+/* SMALL BUTTON */
+
+.btn.sm {
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   10. FLEX ROW
+   ===================================================== */
+
+.row {
+    display: flex;
+
+    gap: 10px;
+    flex-wrap: wrap;
+
+    align-items: center;
+}
+
+.row > * {
+    flex: 1;
+    min-width: 130px;
+}
+
+.row > .btn {
+    flex: 0 0 auto;
+}
+
+
+/* =====================================================
+   11. PROGRESS BARS
+   ===================================================== */
+
+.bar {
+    height: 9px;
+
+    background: var(--card2);
+
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.bar i {
+    display: block;
+
+    height: 100%;
+    background: var(--ac);
+}
+
+
+/* BAR LABELS */
+
+.bl {
+    display: grid;
+
+    grid-template-columns: 130px 1fr 30px;
+
+    gap: 10px;
+    align-items: center;
+
+    margin: 7px 0;
+}
+
+
+/* =====================================================
+   12. COMPLAINT TIMELINE
+   ===================================================== */
+
+.tl {
+    border-left: 2px solid var(--line);
+
+    padding-left: 14px;
+    margin-left: 6px;
+}
+
+.tl div {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.tl div:before {
+    content: "";
+
+    position: absolute;
+
+    left: -20px;
+    top: 6px;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    background: var(--ac);
+}
+
+
+/* =====================================================
+   13. MODAL
+   ===================================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(5, 30, 35, .65);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9;
+    padding: 16px;
+}
+
+
+/* HIDDEN MODAL */
+
+.modal.hidden {
+    display: none;
+}
+
+
+/* MODAL CONTENT */
+
+.mbox {
+    background: var(--card);
+
+    border: 1px solid var(--line);
+    border-radius: 16px;
+
+    padding: 22px;
+
+    width: 640px;
+    max-width: 100%;
+
+    max-height: 90vh;
+    overflow: auto;
+}
+
+
+/* =====================================================
+   14. TOAST NOTIFICATIONS
+   ===================================================== */
+
+#toast {
+    position: fixed;
+
+    bottom: 20px;
+    right: 20px;
+
+    background: #1f9d7a;
+    color: #fff;
+
+    padding: 10px 16px;
+    border-radius: 8px;
+
+    opacity: 0;
+    transition: .3s;
+
+    z-index: 20;
+}
+
+#toast.show {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   15. LOGIN PAGE
+   ===================================================== */
+
+.login {
+    min-height: 100vh;
+
+    display: grid;
+    place-items: center;
+
+    padding: 16px;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            color-mix(in srgb, var(--ac) 22%, transparent),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            circle at 85% 90%,
+            color-mix(in srgb, #CBF5EF 30%, transparent),
+            transparent 45%
+        );
+}
+
+
+/* LOGIN BOX */
+
+.lbox {
+    width: 430px;
+    max-width: 100%;
+}
+
+
+/* =====================================================
+   16. DEMO INFORMATION
+   ===================================================== */
+
+.demo {
+    background: color-mix(in srgb, var(--ac) 16%, transparent);
+
+    border: 1px solid var(--ac);
+
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+
+/* =====================================================
+   17. STAR RATING
+   ===================================================== */
+
+.star {
+    cursor: pointer;
+
+    font-size: 24px;
+    color: var(--line);
+}
+
+.star.on {
+    color: var(--ac);
+}
+
+
+/* =====================================================
+   18. RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .shell {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        position: static;
+
+        height: auto;
+
+        display: flex;
+        overflow-x: auto;
+
+        gap: 4px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .nav {
+        white-space: nowrap;
+        width: auto;
+    }
+
+}
