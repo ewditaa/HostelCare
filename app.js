@@ -228,7 +228,6 @@ function render() {
                             }
                         "
                     >
-                        Reset demo data
                     </p>
 
                 </div>
